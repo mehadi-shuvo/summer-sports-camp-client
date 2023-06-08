@@ -1,0 +1,45 @@
+.banner-bg-1{
+    background-image: url(../../../../assets/banner1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner-bg-2{
+    background-image: url(../../../../assets/banner2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner-bg-3{
+    background-image: url(../../../../assets/banner3.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner-bg-4{
+    background-image: url(../../../../assets/banner4.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner-bg-5{
+    background-image: url(../../../../assets/banner5.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.myBtn{
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all linear 0.4s;
+    border: 3px solid rgb(249 115 22);
+}
+.myBtn:hover{
+    background: none;
+    border: 3px solid rgb(249 115 22);
+}
