@@ -9,6 +9,7 @@ const Login = () => {
         <div>
             <div className="bg-orange-100 w-2/3 mx-auto my-10 p-20 rounded-xl flex flex-col justify-center items-center">
                 <form onSubmit={handleSubmit(onSubmit)}>
+                <h4 className="text-4xl text-orange-500 text-center font-bold mb-4">Please Login</h4>
                     <div>
                         <div className="w-[380px] space-y-4 mb-3">
                             <label className="font-bold text-slate-700 text-xl">E-mail</label><br />
