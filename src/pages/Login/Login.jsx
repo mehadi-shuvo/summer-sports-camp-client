@@ -1,9 +1,29 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const {login} = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const showPasswordHandler = ()=>{
+        setShowPassword(!showPassword);
+    }
+
+    const onSubmit = data => {
+        login(data.email, data.password)
+            .then(result=>{
+                console.log(result);
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+        console.log(data)
+    
+    };
     console.log(errors);
     return (
         <div>
@@ -15,9 +35,14 @@ const Login = () => {
                             <label className="font-bold text-slate-700 text-xl">E-mail</label><br />
                             <input className="py-2 px-2 rounded-lg w-full" type="email" placeholder="Your e-mail" {...register("email", { required: true, maxLength: 80 })} />
                         </div>
-                        <div className="w-[380px] space-y-4 mb-3">
+                        <div className="w-[380px] space-y-4 mb-3 relative">
                             <label className="font-bold text-slate-700 text-xl">Password</label><br />
-                            <input className="py-2 px-2 rounded-lg w-full" type="password" placeholder="Your password" {...register("email", { required: true, maxLength: 80 })} />
+                            <input className="py-2 px-2 rounded-lg w-full" type={showPassword ? 'text' : 'password'}
+                            placeholder="Your password" 
+                            {...register("password", 
+                            { required: true, maxLength: 80 })
+                            } />
+                            <span className="absolute right-5 top-[52px] text-lg">{showPassword? <FaEyeSlash onClick={showPasswordHandler}></FaEyeSlash> : <FaEye onClick={showPasswordHandler}></FaEye>}</span>
                         </div>
                     </div>
 
