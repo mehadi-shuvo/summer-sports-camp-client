@@ -1,22 +1,42 @@
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
+import useUserRole from "../../../hooks/useUserRole";
 
 const NavBar = () => {
     const {user,logOut} = useContext(AuthContext)
+     let [dashboardLink, setDashboardLink] = useState('');
+     const [userRole] = useUserRole()
     //console.log(user);
     const handleLogOut = () => {
         logOut().then(()=>{}).catch(error=>console.log(error))
     }
 
+    useEffect(()=>{
+        if(user){
+            if(userRole === 'admin'){
+                setDashboardLink('adminHome')
+            }
+            else if(userRole === 'instructor'){
+                setDashboardLink('instructorHome');
+            }
+            else{
+                setDashboardLink('studentHome')
+            }
+        
+        }
+    },[userRole, user])
+
+
+    
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/all-toys'>instructors</Link></li>
         <li><Link to='/all-toys'>class</Link></li>
         {
             user ? <>
-                <li><Link to='/dashboard/adminHome'>Dashboard</Link></li>
+                <li><Link to={`/dashboard/${dashboardLink}`}>Dashboard</Link></li>
             </> : ""
         }
     </>
