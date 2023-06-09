@@ -32,7 +32,7 @@ const NavBar = () => {
     
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/all-toys'>instructors</Link></li>
+        <li><Link to='/instructors'>instructors</Link></li>
         <li><Link to='/all-toys'>class</Link></li>
         {
             user ? <>

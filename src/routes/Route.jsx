@@ -13,6 +13,7 @@ import InstructorRoute from "./InstructorRoute";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../dashboard/Admin/ManageClasses/ManageClasses";
+import Instructors from "../pages/Instructors/Instructors";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path:'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'instructors',
+                element: <Instructors></Instructors>
             }
         ]
     },
