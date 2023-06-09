@@ -10,9 +10,9 @@ const Dashboard = () => {
   useEffect(()=>{
         if(userRole === 'admin'){
             const items = <>
-                <NavLink>Admin Home</NavLink>
+                <NavLink to='/dashboard/adminHome'>Admin Home</NavLink>
                 <NavLink to='/dashboard/manage-user'>Manage Users</NavLink>
-                <NavLink>Manage Classes</NavLink>
+                <NavLink to='/dashboard/manage-classes'>Manage Classes</NavLink>
             </>
             setNavItems(items)
         }

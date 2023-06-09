@@ -10,6 +10,9 @@ import InstructorHome from "../dashboard/Instructor/InstructorHome/InstructorHom
 import AddClass from "../dashboard/Instructor/AddClass/AddClass";
 import MyClasses from "../dashboard/Instructor/MyClasses/MyClasses";
 import InstructorRoute from "./InstructorRoute";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import ManageClasses from "../dashboard/Admin/ManageClasses/ManageClasses";
 
 const router = createBrowserRouter([
     {
@@ -32,25 +35,30 @@ const router = createBrowserRouter([
     },
     {
         path:'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
+            //admin
             {
                 path:'adminHome',
-                element:<AdminHome></AdminHome>
+                element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path:'manage-user',
-                element:<ManageUser></ManageUser>
+                element:<AdminRoute><ManageUser></ManageUser></AdminRoute>
+            },
+            {
+                path:'manage-classes',
+                element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
 
             //instructor
             {
                 path: 'instructorHome',
-                element: <InstructorHome></InstructorHome>
+                element: <InstructorRoute><InstructorHome></InstructorHome></InstructorRoute>
             },
             {
                 path: 'add-a-class',
-                element: <AddClass></AddClass>
+                element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
             },
             {
                 path: 'my-classes',
