@@ -1,6 +1,5 @@
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { FaTrashAlt, FaUser, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const ManageUser = () => {
@@ -30,10 +29,26 @@ const ManageUser = () => {
             }
         })
     }
-
-    const handleRemoveCart = () => {
-
+    const handleCreateInstructor = user => {
+        fetch(`http://localhost:3000/users/instructor/${user._id}`,{
+            method:'PATCH'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.modifiedCount>0){
+                refetch();
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: `Congratulations!! Now, ${user.name} is an admin.`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
     }
+
     return (
         <div className="my-20">
             <h4 className="text-4xl text-center font-bold text-orange-500">Manage User</h4>
@@ -62,15 +77,18 @@ const ManageUser = () => {
                                     {user.name}
                                 </td>
                                 <td className="">{user.email}</td>
-                                <td className="">{user?.role ? user?.role : 'Student'}</td>
+                                <td className="capitalize">{user?.role ? user?.role : 'Student'}</td>
                                 <td >
-                                    <button className="btn myBtn bg-orange-500 hover:text-orange-500 ">Instructor</button>
+                                    <button 
+                                    disabled={user?.role === 'instructor'}
+                                    onClick={()=>handleCreateInstructor(user)}
+                                    className="btn  myBtn bg-orange-500 hover:text-orange-500 disabled:border-none">Instructor</button>
                                 </td>
                                 <th>
                                     <button 
                                     disabled={user?.role === 'admin'}
                                     onClick={()=>handleCreateAdmin(user)}
-                                    className="btn myBtn bg-orange-500 hover:text-orange-500 disabled:border-none">Admin</button>
+                                    className="btn  myBtn bg-orange-500 hover:text-orange-500 disabled:border-none">Admin</button>
                                 </th>
                             </tr>)
                         }
