@@ -19,8 +19,8 @@ const Dashboard = () => {
         else if(userRole === 'instructor'){
             const items = <>
                 <NavLink>Instructor Home</NavLink>
-                <NavLink to='/dashboard/add-class'>Add Class</NavLink>
-                <NavLink>Manage Classes</NavLink>
+                <NavLink to='/dashboard/add-a-class'>Add Class</NavLink>
+                <NavLink to='my-classes'>My Classes</NavLink>
             </>
             setNavItems(items)
         }
