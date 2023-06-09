@@ -6,6 +6,7 @@ import Register from "../pages/Register/Register";
 import Dashboard from "../layout/Dashboard";
 import AdminHome from "../dashboard/Admin/Home/AdminHome";
 import ManageUser from "../dashboard/Admin/ManageUser/ManageUser";
+import InstructorHome from "../dashboard/Instructor/InstructorHome/InstructorHome";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path:'manage-user',
                 element:<ManageUser></ManageUser>
+            },
+            {
+                path: 'instructorHome',
+                element: <InstructorHome></InstructorHome>
             }
         ]
     }
