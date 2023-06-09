@@ -16,7 +16,7 @@ const NavBar = () => {
         <li><Link to='/all-toys'>class</Link></li>
         {
             user ? <>
-                <li><Link to='/my-toys'>Dashboard</Link></li>
+                <li><Link to='/dashboard/adminHome'>Dashboard</Link></li>
             </> : ""
         }
     </>
