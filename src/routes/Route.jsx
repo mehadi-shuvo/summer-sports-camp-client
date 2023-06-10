@@ -18,6 +18,7 @@ import ClassesPage from "../pages/ClassesPage/ClassesPage";
 import FeedbackPage from "../dashboard/Admin/ManageClasses/FeedbackPage";
 import StudentHome from "../dashboard/Student/StudentHome/StudentHome";
 import MySelectedClasses from "../dashboard/Student/MySelectedClasses/MySelectedClasses";
+import Payment from "../dashboard/Student/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -89,6 +90,11 @@ const router = createBrowserRouter([
             {
                 path: 'selected-classes',
                 element: <MySelectedClasses></MySelectedClasses>
+            },
+            {
+                path:'payment/:id',
+                element:<PrivateRoute><Payment></Payment></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:3000/myClasses/one/${params.id}`)
             }
         ]
     }

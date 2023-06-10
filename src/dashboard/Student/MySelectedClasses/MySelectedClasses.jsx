@@ -1,6 +1,7 @@
 import {useQuery } from "react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const MySelectedClasses = () => {
@@ -14,10 +15,6 @@ const MySelectedClasses = () => {
         }
     })
 
-
-    const PayHandler = id =>{
-        console.log(id);
-    }
     const DeleteHandler = id =>{
         axiosSecure.delete(`/myClasses/${id}`)
         .then(res=> {
@@ -79,10 +76,9 @@ const MySelectedClasses = () => {
                                             className="btn  bg-orange-500 text-white px-3 hover:bg-orange-700 ">Delete</button>
                                     </td>
                                     <th className="flex justify-around items-center">
-                                        <button
-                                            
-                                            onClick={() => PayHandler(row._id)}
-                                            className="btn  bg-orange-500 text-white px-10 hover:bg-orange-700">Pay</button>
+                                        <Link
+                                            to={`/dashboard/payment/${row.classId}`}
+                                            className="btn  bg-orange-500 text-white px-10 hover:bg-orange-700">Pay</Link>
                                     </th>
                                 </tr>)
                             }
