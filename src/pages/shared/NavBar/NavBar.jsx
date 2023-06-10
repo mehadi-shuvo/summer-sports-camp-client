@@ -33,7 +33,7 @@ const NavBar = () => {
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>instructors</Link></li>
-        <li><Link to='/all-toys'>class</Link></li>
+        <li><Link to='/classes'>classes</Link></li>
         {
             user ? <>
                 <li><Link to={`/dashboard/${dashboardLink}`}>Dashboard</Link></li>
