@@ -3,10 +3,37 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { data: classes = [], } = useQuery(['classes'], async () => {
+    const { data: classes = [], refetch} = useQuery(['classes'], async () => {
         const res = await axiosSecure.get('/class');
         return res.data
     })
+
+    const ApprovedHandler = (id) => {
+
+        axiosSecure.put(`/class/approve/${id}`)
+            .then(res => {
+                console.log('success', res);
+                refetch()
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+    }
+    const DenyHandler = (id) => {
+
+        axiosSecure.put(`/class/deny/${id}`)
+            .then(res => {
+                console.log('success', res);
+                refetch()
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+
+    }
 
     return (
         <div>
@@ -53,17 +80,19 @@ const ManageClasses = () => {
                                     </td>
                                     <td className="uppercase text-slate-700">{row.status}</td>
                                     <th className="flex justify-around items-center">
-                                        <button 
-                                        
-                                        className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Approve</button>
-                                        
-                                        <button 
-                                        
-                                        className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Deny</button>
-                                        
-                                        <button 
-                                        
-                                        className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Feedback</button>
+                                        <button
+                                            disabled={row.status === 'approved'}
+                                            onClick={() => ApprovedHandler(row._id)}
+                                            className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Approve</button>
+
+                                        <button
+                                            disabled={row.status === 'denied'}
+                                            onClick={()=>DenyHandler(row._id)}
+                                            className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Deny</button>
+
+                                        <button
+
+                                            className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Feedback</button>
                                     </th>
                                 </tr>)
                             }
