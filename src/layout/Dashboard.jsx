@@ -26,8 +26,8 @@ const Dashboard = () => {
         }
         else{
             const items = <>
-                <NavLink>Instructor Home</NavLink>
-                <NavLink to='/dashboard/add-class'>Add Class</NavLink>
+                <NavLink>Student Home</NavLink>
+                <NavLink to='/dashboard/selected-classes'>My Selected Classes</NavLink>
                 <NavLink>Manage Classes</NavLink>
             </>
             setNavItems(items)

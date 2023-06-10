@@ -1,15 +1,15 @@
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
-    const { data: classes = [], refetch} = useQuery(['classes'], async () => {
+    const { data: classes = [], refetch } = useQuery(['classes'], async () => {
         const res = await axiosSecure.get('/class');
         return res.data
     })
 
     const ApprovedHandler = (id) => {
-
         axiosSecure.put(`/class/approve/${id}`)
             .then(res => {
                 console.log('success', res);
@@ -34,6 +34,7 @@ const ManageClasses = () => {
 
 
     }
+
 
     return (
         <div>
@@ -87,12 +88,12 @@ const ManageClasses = () => {
 
                                         <button
                                             disabled={row.status === 'denied'}
-                                            onClick={()=>DenyHandler(row._id)}
+                                            onClick={() => DenyHandler(row._id)}
                                             className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Deny</button>
 
-                                        <button
-
-                                            className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Feedback</button>
+                                        <Link
+                                            to={`/dashboard/feedback/${row._id}`}
+                                            className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Feedback</Link>
                                     </th>
                                 </tr>)
                             }
@@ -100,6 +101,7 @@ const ManageClasses = () => {
                         </tbody>
 
                     </table>
+
                 </div>
             </div>
         </div>

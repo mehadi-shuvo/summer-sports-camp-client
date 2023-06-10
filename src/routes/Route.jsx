@@ -15,6 +15,8 @@ import AdminRoute from "./AdminRoute";
 import ManageClasses from "../dashboard/Admin/ManageClasses/ManageClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import ClassesPage from "../pages/ClassesPage/ClassesPage";
+import FeedbackPage from "../dashboard/Admin/ManageClasses/FeedbackPage";
+import StudentHome from "../dashboard/Student/StudentHome/StudentHome";
 
 const router = createBrowserRouter([
     {
@@ -60,6 +62,10 @@ const router = createBrowserRouter([
                 path:'manage-classes',
                 element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
             },
+            {
+                path: 'feedback/:id',
+                element: <FeedbackPage></FeedbackPage>
+            },
 
             //instructor
             {
@@ -73,7 +79,12 @@ const router = createBrowserRouter([
             {
                 path: 'my-classes',
                 element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>
-            }
+            },
+            //student 
+            {
+                path: 'studentHome',
+                element:<StudentHome></StudentHome>
+            },
         ]
     }
 ])
