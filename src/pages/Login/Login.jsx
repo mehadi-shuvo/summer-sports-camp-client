@@ -1,14 +1,19 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { FaEye,FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const {login} = useContext(AuthContext);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
+    let location = useLocation();
+    let navigate = useNavigate();
 
+
+    let from = location.state?.from?.pathname || "/";
     const showPasswordHandler = ()=>{
         setShowPassword(!showPassword);
     }
@@ -17,14 +22,20 @@ const Login = () => {
         login(data.email, data.password)
             .then(result=>{
                 console.log(result);
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'Login successfully!!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  navigate(from, { replace: true });
             })
             .catch(error=>{
                 console.log(error);
             })
-        console.log(data)
     
     };
-    console.log(errors);
     return (
         <div>
             <div className="bg-orange-100 w-2/3 mx-auto my-10 p-20 rounded-xl flex flex-col justify-center items-center">

@@ -17,7 +17,26 @@ const ClassInfo = ({ item }) => {
     const selectClassHandler =(item)=>{
         console.log(item);
         if(user === null){
-            return navigate('/login')
+
+            Swal.fire({
+                title: 'Sorry, You have not logged',
+                text: "Without login you can not select it.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire(
+                    'Right decision!',
+                    'Login fast and enjoy',
+                    'success'
+                  )
+                  navigate('/login')
+                }
+              })
+   
         }
         const {_id, name, email, image, className, seats, price} = item
         axiosSecure.post('/myClasses',{

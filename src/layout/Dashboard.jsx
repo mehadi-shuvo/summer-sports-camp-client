@@ -20,7 +20,7 @@ const Dashboard = () => {
             const items = <>
                 <NavLink>Instructor Home</NavLink>
                 <NavLink to='/dashboard/add-a-class'>Add Class</NavLink>
-                <NavLink to='my-classes'>My Classes</NavLink>
+                <NavLink to='/dashboard/enrolled-classes'>My Enrolled Classes</NavLink>
             </>
             setNavItems(items)
         }
@@ -28,7 +28,7 @@ const Dashboard = () => {
             const items = <>
                 <NavLink>Student Home</NavLink>
                 <NavLink to='/dashboard/selected-classes'>My Selected Classes</NavLink>
-                <NavLink>Manage Classes</NavLink>
+                <NavLink to='/dashboard/enrolled-classes'>My Enrolled Classes</NavLink>
             </>
             setNavItems(items)
         }
