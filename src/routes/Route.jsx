@@ -20,6 +20,7 @@ import StudentHome from "../dashboard/Student/StudentHome/StudentHome";
 import MySelectedClasses from "../dashboard/Student/MySelectedClasses/MySelectedClasses";
 import Payment from "../dashboard/Student/Payment/Payment";
 import EnrolledClasses from "../dashboard/Student/EnrolledClasses/EnrolledClasses";
+import MyPayments from "../dashboard/Student/MyPayments/MyPayments";
 
 const router = createBrowserRouter([
     {
@@ -100,6 +101,10 @@ const router = createBrowserRouter([
             {
                 path: 'enrolled-classes',
                 element: <PrivateRoute><EnrolledClasses></EnrolledClasses></PrivateRoute>
+            },
+            {
+                path: 'my-payments',
+                element: <PrivateRoute><MyPayments></MyPayments></PrivateRoute>
             }
         ]
     }
