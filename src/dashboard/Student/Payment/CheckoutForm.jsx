@@ -83,6 +83,10 @@ const CheckoutForm = ({ selectedClass, price }) => {
                     //     //display confirm
                     // }
                 })
+
+            axiosSecure.put(`/class/seats/${selectedClass.classId}`)
+            .then(res=>console.log(res))
+            .catch(error=>console.log(error))  
         }
 
     }

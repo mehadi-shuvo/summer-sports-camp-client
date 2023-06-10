@@ -60,7 +60,6 @@ const MySelectedClasses = () => {
                                             </div>
                                             <div>
                                                 <div className="font-bold text-orange-500">{row.className}</div>
-                                                <div className="text-sm text-slate-600">Available Seats: {row.seats}</div>
                                                 <div className="text-sm text-slate-600">Enrolled Price: ${row.price}</div>
                                             </div>
                                         </div>
