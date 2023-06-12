@@ -52,7 +52,7 @@ const NavBar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <a className="font-bold text-xl">Toy<span className="text-red-500">Cars</span></a>
+                    <Link to='/' className="font-bold text-xl">SS<span className="text-white">Camp</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 uppercase font-bold text-white">

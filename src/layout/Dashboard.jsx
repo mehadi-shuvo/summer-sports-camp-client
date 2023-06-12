@@ -1,49 +1,81 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import useUserRole from "../hooks/useUserRole";
+import { FaHouseUser, FaBookReader, FaUserTie, FaHome, FaList, FaGripVertical, FaHandHoldingUsd, FaClipboard, FaCalendarCheck, FaUsers, FaCalendarAlt } from "react-icons/fa";
 
 
 const Dashboard = () => {
-  const [navItems, setNavItems] = useState();
-  const [userRole] = useUserRole()
+    const [navItems, setNavItems] = useState();
+    const [userRole] = useUserRole()
 
-  useEffect(()=>{
-        if(userRole === 'admin'){
+    useEffect(() => {
+        if (userRole === 'admin') {
             const items = <>
-                <NavLink to='/dashboard/adminHome'>Admin Home</NavLink>
-                <NavLink to='/dashboard/manage-user'>Manage Users</NavLink>
-                <NavLink to='/dashboard/manage-classes'>Manage Classes</NavLink>
+                <NavLink 
+                className="text-slate-300 font-bold text-lg flex items-center gap-2"  
+                to='/dashboard/adminHome'><FaHouseUser/> Admin Home</NavLink>
+                <NavLink 
+                className="text-slate-300 font-bold text-lg flex items-center gap-2"  
+                to='/dashboard/manage-user'><FaUsers/> Manage Users</NavLink>
+                <NavLink 
+                className="text-slate-300 font-bold text-lg flex items-center gap-2"  
+                to='/dashboard/manage-classes'><FaCalendarAlt/> Manage Classes</NavLink>
             </>
             setNavItems(items)
         }
-        else if(userRole === 'instructor'){
+        else if (userRole === 'instructor') {
             const items = <>
-                <NavLink>Instructor Home</NavLink>
-                <NavLink to='/dashboard/add-a-class'>Add Class</NavLink>
-                <NavLink to='/dashboard/enrolled-classes'>My Enrolled Classes</NavLink>
+                <NavLink 
+                className="text-slate-300 font-bold text-lg flex items-center gap-2"  
+                to='/dashboard/instructorHome'><FaHouseUser/> Instructor Home</NavLink>
+                <NavLink 
+                className="text-slate-300 font-bold text-lg flex items-center gap-2"  
+                to='/dashboard/add-a-class'><FaClipboard/> Add Class</NavLink>
+                <NavLink 
+                className="text-slate-300 font-bold text-lg flex items-center gap-2"  
+                to='/dashboard/enrolled-classes'><FaCalendarCheck/> My Enrolled Classes</NavLink>
             </>
             setNavItems(items)
         }
-        else{
+        else {
             const items = <>
-                <NavLink>Student Home</NavLink>
-                <NavLink to='/dashboard/selected-classes'>My Selected Classes</NavLink>
-                <NavLink to='/dashboard/enrolled-classes'>My Enrolled Classes</NavLink>
-                <NavLink to='/dashboard/my-payments'>My Payments</NavLink>
+                <NavLink 
+                
+                className="text-slate-300 font-bold text-lg flex items-center gap-2" to='/dashboard/studentHome'
+                ><FaHouseUser/> Student Home</NavLink>
+                <NavLink 
+                
+                className="text-slate-300 font-bold text-lg flex items-center gap-2" to='/dashboard/selected-classes'
+                ><FaList/> My Selected Classes</NavLink>
+                <NavLink 
+                
+                className="text-slate-300 font-bold text-lg flex items-center gap-2" to='/dashboard/enrolled-classes'
+                ><FaGripVertical/> My Enrolled Classes</NavLink>
+                <NavLink 
+                
+                className="text-slate-300 font-bold text-lg flex items-center gap-2" to='/dashboard/my-payments'
+                ><FaHandHoldingUsd/> My Payments</NavLink>
             </>
             setNavItems(items)
         }
-    
-},[userRole])
+
+    }, [userRole])
 
 
     return (
         <div className="flex">
-            <div className="w-1/4 bg-orange-500 h-screen sticky top-0 left-0 mr-10">
+            <div className="w-1/4 bg-orange-500 h-screen sticky top-0 left-0 mr-10 px-10 pb-20">
+                <h2 className="text-2xl font-bold text-white my-10">Summer Spots Camp</h2>
                 <div className="flex flex-col gap-3">
                     {
                         navItems
                     }
+                </div>
+                <div className="divider"></div>
+                <div className="space-y-3">
+                    <Link className="text-white font-bold text-lg flex items-center gap-2" to='/'><FaHome></FaHome> Home</Link>
+                  <Link className="text-white font-bold text-base flex items-center gap-2" to='/classes'> <FaBookReader/> Classes</Link>
+                    <Link className="text-white font-bold text-base flex items-center gap-2" to='/instructors'><FaUserTie/> Instructors</Link>
                 </div>
             </div>
             <div className="w-3/4">
