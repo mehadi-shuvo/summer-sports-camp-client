@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { FaEye,FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -60,6 +61,8 @@ const Login = () => {
                     <input className="w-full myBtn bg-orange-500 hover:text-orange-500 cursor-pointer my-4" type="submit" value='Login' />
                 </form>
                 <p className="text-base text-slate-800">Don't have any account? <Link className="text-orange-500 underline" to='/register'>Create One</Link></p>
+                <div className="divider"></div>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
