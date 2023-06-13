@@ -23,5 +23,6 @@
     * React Query
     * React form-hook
     * Axios
+    * React helmet
 
-[Live Link](https://toycars-3b671.web.app/ "Summer Sports Camp")
+[Live Link](https://sports-summer-camp-18386.web.app/ "Summer Sports Camp")
