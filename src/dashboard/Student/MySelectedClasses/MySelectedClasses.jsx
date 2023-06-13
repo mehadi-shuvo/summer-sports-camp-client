@@ -2,6 +2,7 @@ import {useQuery } from "react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const MySelectedClasses = () => {
@@ -28,6 +29,9 @@ const MySelectedClasses = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Student | Selected Classes</title>
+            </Helmet>
             <h4 className="text-4xl text-orange-500 text-center font-bold my-20">My selected classes</h4>
 
 

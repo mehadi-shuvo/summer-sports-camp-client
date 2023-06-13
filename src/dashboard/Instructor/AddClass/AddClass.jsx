@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../providers/AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const imgKey = import.meta.env.VITE_IMG_KEY
 
 const AddClass = () => {
@@ -47,7 +48,9 @@ const AddClass = () => {
     }
     return (
         <div className="my-20"> 
-
+            <Helmet>
+                <title>Instructor | Add Class</title>
+            </Helmet>
             <div className="bg-orange-100 w-4/5 mx-auto my-10 p-20 rounded-xl flex flex-col justify-center items-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col justify-center items-center">
                     <h4 className="text-4xl text-orange-500 text-center font-bold mb-4">Add a new Class</h4>

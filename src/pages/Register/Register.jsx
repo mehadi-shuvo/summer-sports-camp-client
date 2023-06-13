@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -28,7 +29,7 @@ const Register = () => {
 
                         const user = { email: data.email, name: data.name, photo: data.photo }
                         console.log(result?.user);
-                        fetch('http://localhost:3000/users', {
+                        fetch('https://sports-summer-camp-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -63,6 +64,9 @@ const Register = () => {
     // console.log(errors);
     return (
         <div>
+             <Helmet>
+                <title>SSCamp | Register</title>
+            </Helmet>
             <div className="bg-orange-100 w-2/3 mx-auto my-10 p-20 rounded-xl flex flex-col justify-center items-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col justify-center items-center">
                     <h4 className="text-4xl text-orange-500 text-center font-bold mb-4">Create Account</h4>

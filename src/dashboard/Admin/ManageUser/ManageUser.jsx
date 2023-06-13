@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ManageUser = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -11,7 +12,7 @@ const ManageUser = () => {
 
 
     const handleCreateAdmin = user => {
-        fetch(`http://localhost:3000/users/admin/${user._id}`,{
+        fetch(`https://sports-summer-camp-server.vercel.app/users/admin/${user._id}`,{
             method:'PATCH'
         })
         .then(res=>res.json())
@@ -30,7 +31,7 @@ const ManageUser = () => {
         })
     }
     const handleCreateInstructor = user => {
-        fetch(`http://localhost:3000/users/instructor/${user._id}`,{
+        fetch(`https://sports-summer-camp-server.vercel.app/users/instructor/${user._id}`,{
             method:'PATCH'
         })
         .then(res=>res.json())
@@ -51,6 +52,9 @@ const ManageUser = () => {
 
     return (
         <div className="my-20">
+            <Helmet>
+                <title>Dashboard | Users</title>
+            </Helmet>
             <h4 className="text-4xl text-center font-bold text-orange-500">Manage User</h4>
             <h3>total {users.length}</h3>
 

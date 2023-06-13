@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -38,7 +39,9 @@ const ManageClasses = () => {
 
     return (
         <div>
-            mange {classes.length} class
+            <Helmet>
+                <title>Dashboard | Manage Classes</title>
+            </Helmet>
 
             <div>
                 <div className="overflow-x-auto">

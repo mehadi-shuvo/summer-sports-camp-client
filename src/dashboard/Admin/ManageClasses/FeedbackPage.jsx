@@ -13,7 +13,7 @@ const FeedbackPage = () => {
         const feedback = event.target.feedback.value;
         const id = data._id;
         
-        axiosSecure.patch(`http://localhost:3000/class/feedback/${id}`,{ feedback})
+        axiosSecure.patch(`https://sports-summer-camp-server.vercel.app/class/feedback/${id}`,{ feedback})
         .then(result=>{
             if(result.data.modifiedCount>0){
                 Swal.fire({

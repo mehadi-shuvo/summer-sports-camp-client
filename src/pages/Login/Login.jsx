@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 import { FaEye,FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +40,9 @@ const Login = () => {
     };
     return (
         <div>
+             <Helmet>
+                <title>SSCamp | Login</title>
+            </Helmet>
             <div className="bg-orange-100 w-2/3 mx-auto my-10 p-20 rounded-xl flex flex-col justify-center items-center">
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <h4 className="text-4xl text-orange-500 text-center font-bold mb-4">Please Login</h4>

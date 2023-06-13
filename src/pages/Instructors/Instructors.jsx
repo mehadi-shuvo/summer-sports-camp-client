@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import InstructorCard from "./InstructorCard";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -10,6 +11,9 @@ const Instructors = () => {
     })
     return (
         <div className="">
+             <Helmet>
+                <title>SSCamp | Instructors</title>
+            </Helmet>
             <h4 className="text-4xl text-orange-500 text-center font-bold py-10 bg-orange-200">Our Awesome Instructors</h4>
 
 

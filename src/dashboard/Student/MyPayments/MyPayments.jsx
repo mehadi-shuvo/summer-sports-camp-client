@@ -2,6 +2,7 @@ import moment from "moment";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "react-query";
+import { Helmet } from "react-helmet-async";
 
 
 const MyPayments = () => {
@@ -15,6 +16,9 @@ const MyPayments = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Student | Payments</title>
+            </Helmet>
             <h4 className="py-10 text-center text-4xl font-bold text-orange-500">Payments History</h4>
 
             <div>

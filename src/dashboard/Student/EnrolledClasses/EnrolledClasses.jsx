@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import moment from "moment/moment";
+import { Helmet } from "react-helmet-async";
 
 
 const EnrolledClasses = () => {
@@ -13,6 +14,9 @@ const EnrolledClasses = () => {
     })
     return (
         <div>
+            <Helmet>
+                <title>Student | Enrolled Class</title>
+            </Helmet>
             <h4 className="py-10 text-center text-4xl font-bold text-orange-500">Enrolled Classes</h4>
 
             <div>
