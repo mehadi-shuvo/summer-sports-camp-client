@@ -71,7 +71,8 @@ const router = createBrowserRouter([
             },
             {
                 path: 'feedback/:id',
-                element: <FeedbackPage></FeedbackPage>
+                element: <AdminRoute><FeedbackPage></FeedbackPage></AdminRoute>,
+                loader: ({params}) => fetch(`http://localhost:3000/class/feedback/${params.id}`)
             },
 
             //instructor

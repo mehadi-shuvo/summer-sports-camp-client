@@ -10,7 +10,7 @@ const AboutUs = () => {
                     </div>
                     <div className='my-10'>
                         <h3 className='text-4xl font-bold text-slate-700 '>About Us</h3>
-                        <p className='text-lg font-light mt-4 text-slate-600'>Year after year, families tell us why they choose Hello Summer as a priority place for their kids to spend summer holidays at and to have the best time ever.</p>
+                        <p className='text-lg font-light mt-4 text-slate-600'>Year after year, families tell us why they choose Summer Sports Camp as a priority place for their kids to spend summer holidays at and to have the best time ever.</p>
                         <button className='myBtn bg-orange-500 hover:text-orange-500 w-[200px] mt-5'>Learn More</button>
                     </div>
                 </div>
