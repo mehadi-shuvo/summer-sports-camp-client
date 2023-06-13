@@ -4,7 +4,7 @@ import { FaFlag, FaUsers } from "react-icons/fa";
 const ClassCard = ({item}) => {
     return (
         <div className="card bg-base-100 shadow-xl">
-            <figure><img src={item.image} alt="Shoes" /></figure>
+            <figure><img className="h-[200px] min-w-full" src={item.image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
                     {item.className}

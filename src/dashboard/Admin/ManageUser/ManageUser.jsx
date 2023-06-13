@@ -41,7 +41,7 @@ const ManageUser = () => {
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
-                    title: `Congratulations!! Now, ${user.name} is an admin.`,
+                    title: `Congratulations!! Now, ${user.name} is an instructor.`,
                     showConfirmButton: false,
                     timer: 1500
                   })

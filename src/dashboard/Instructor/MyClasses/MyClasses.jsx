@@ -18,7 +18,7 @@ const MyClasses = () => {
         <div className="my-20 mr-10">
             <h4 className="text-center text-4xl text-orange-500 font-bold mb-8">My classes</h4>
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-3 gap-5">
                 {
                     classes.map((item)=> <ClassCard key={item._id} item={item}></ClassCard>)
                 }

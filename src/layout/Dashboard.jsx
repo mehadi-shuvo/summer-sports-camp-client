@@ -33,7 +33,7 @@ const Dashboard = () => {
                 to='/dashboard/add-a-class'><FaClipboard/> Add Class</NavLink>
                 <NavLink 
                 className="text-slate-300 font-bold text-lg flex items-center gap-2"  
-                to='/dashboard/enrolled-classes'><FaCalendarCheck/> My Enrolled Classes</NavLink>
+                to='/dashboard/my-classes'><FaCalendarCheck/> My Classes</NavLink>
             </>
             setNavItems(items)
         }

@@ -1,5 +1,5 @@
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useUserRole from "../../hooks/useUserRole";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -12,6 +12,7 @@ const ClassInfo = ({ item }) => {
     const [userRole] = useUserRole();
     const navigate = useNavigate();
     const [axiosSecure] = useAxiosSecure()
+    const location = useLocation();
 
 
     const selectClassHandler =(item)=>{
@@ -33,7 +34,7 @@ const ClassInfo = ({ item }) => {
                     'Login fast and enjoy',
                     'success'
                   )
-                  navigate('/login')
+                  navigate('/login', {state:{ from: location }})
                 }
               })
    
@@ -60,7 +61,7 @@ const ClassInfo = ({ item }) => {
     }
     return (
         <div className={`card card-compact bg-orange-200 shadow-xl ${seats === 0 && 'bg-red-500 text-white'}`}>
-            <figure><img className="" src={item.image} alt="Shoes" /></figure>
+            <figure><img className="h-[200px] min-w-full" src={item.image} alt="Shoes" /></figure>
             <div className="py-4 px-6">
                 <div className="flex justify-between items-center">
                     <h2 className="text-xl text-orange-500 font-bold">{item.className}</h2>
