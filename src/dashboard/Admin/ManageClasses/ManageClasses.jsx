@@ -82,12 +82,12 @@ const ManageClasses = () => {
                                     <td className="uppercase text-slate-700">{row.status}</td>
                                     <th className="flex justify-around items-center">
                                         <button
-                                            disabled={row.status === 'approved'}
+                                            disabled={row.status === 'approved' || row.status === 'denied'}
                                             onClick={() => ApprovedHandler(row._id)}
                                             className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Approve</button>
 
                                         <button
-                                            disabled={row.status === 'denied'}
+                                            disabled={row.status === 'denied' || row.status === 'approved'}
                                             onClick={() => DenyHandler(row._id)}
                                             className="btn btn-xs bg-orange-500 text-white px-3 hover:bg-orange-700 ">Deny</button>
 

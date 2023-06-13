@@ -22,7 +22,7 @@ const Login = () => {
     const onSubmit = data => {
         login(data.email, data.password)
             .then(result=>{
-                console.log(result);
+                //console.log(result);
                 Swal.fire({
                     position: 'top',
                     icon: 'success',

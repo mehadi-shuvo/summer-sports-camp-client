@@ -6,7 +6,7 @@ import ClassInfo from "./ClassInfo";
 const ClassesPage = () => {
     const [axiosSecure] = useAxiosSecure();
     const { data: classes = [] } = useQuery(['classes'], async ()=>{
-        const res = await axiosSecure.get('/class');
+        const res = await axiosSecure.get('/class/approved');
         return res.data;
     })
 

@@ -18,7 +18,8 @@ const MySelectedClasses = () => {
     const DeleteHandler = id =>{
         axiosSecure.delete(`/myClasses/${id}`)
         .then(res=> {
-            if(res.data.deletedCountId > 0 ){
+            //console.log(res.data);
+            if(res.data.deletedCount > 0 ){
                 refetch();
             }
         })
@@ -27,7 +28,7 @@ const MySelectedClasses = () => {
 
     return (
         <div>
-            my selected classes
+            <h4 className="text-4xl text-orange-500 text-center font-bold my-20">My selected classes</h4>
 
 
             <div>

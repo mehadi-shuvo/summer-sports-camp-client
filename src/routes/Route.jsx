@@ -22,6 +22,7 @@ import Payment from "../dashboard/Student/Payment/Payment";
 import EnrolledClasses from "../dashboard/Student/EnrolledClasses/EnrolledClasses";
 import MyPayments from "../dashboard/Student/MyPayments/MyPayments";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import StudentRoute from "./StudentRoute";
 
 const router = createBrowserRouter([
     {
@@ -91,24 +92,24 @@ const router = createBrowserRouter([
             //student 
             {
                 path: 'studentHome',
-                element:<StudentHome></StudentHome>
+                element:<StudentRoute><StudentHome></StudentHome></StudentRoute>
             },
             {
                 path: 'selected-classes',
-                element: <MySelectedClasses></MySelectedClasses>
+                element: <StudentRoute><MySelectedClasses></MySelectedClasses></StudentRoute>
             },
             {
                 path:'payment/:id',
-                element:<PrivateRoute><Payment></Payment></PrivateRoute>,
+                element:<StudentRoute><Payment></Payment></StudentRoute>,
                 loader: ({params}) => fetch(`http://localhost:3000/myClasses/one/${params.id}`)
             },
             {
                 path: 'enrolled-classes',
-                element: <PrivateRoute><EnrolledClasses></EnrolledClasses></PrivateRoute>
+                element: <StudentRoute><EnrolledClasses></EnrolledClasses></StudentRoute>
             },
             {
                 path: 'my-payments',
-                element: <PrivateRoute><MyPayments></MyPayments></PrivateRoute>
+                element: <StudentRoute><MyPayments></MyPayments></StudentRoute>
             }
         ]
     }

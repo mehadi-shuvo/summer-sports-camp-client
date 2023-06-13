@@ -8,7 +8,7 @@ const SocialLogin = () => {
     let location = useLocation();
     let navigate = useNavigate();
 
-    console.log(location);
+    // console.log(location);
     let from = location.state?.from?.pathname || "/";
 
 
