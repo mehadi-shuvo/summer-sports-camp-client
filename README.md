@@ -1,6 +1,6 @@
- =================================================
+=================================================
             Summer Sports Camp
- =================================================    
+=================================================    
 
 * Features of this website
     * Easy to use
@@ -24,4 +24,4 @@
     * React form-hook
     * Axios
 
-[Live Link](https://toycars-3b671.web.app/ "BengaliChefs")
+[Live Link](https://toycars-3b671.web.app/ "Summer Sports Camp")
